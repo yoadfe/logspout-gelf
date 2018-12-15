@@ -27,7 +27,7 @@ type GelfAdapter struct {
 
 // NewGelfAdapter creates a GelfAdapter with UDP as the default transport.
 func NewGelfAdapter(route *router.Route) (router.LogAdapter, error) {
-	_, found := router.AdapterTransports.Lookup(route.AdapterTransport("udp"))
+	_, found := router.AdapterTransports.Lookup(route.AdapterTransport("tcp"))
 	if !found {
 		return nil, errors.New("unable to find adapter: " + route.Adapter)
 	}
